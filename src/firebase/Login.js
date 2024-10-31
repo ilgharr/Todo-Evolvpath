@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { auth } from "./Firebase";
+import { auth } from "./FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-const Login = ({setIsLoggedIn, setUserId}) => {
+const Login = ({setIsLoggedIn, setCurrentUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [notice, setNotice] = useState("");
@@ -12,8 +12,7 @@ const Login = ({setIsLoggedIn, setUserId}) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setIsLoggedIn(true);
-            setUserId(auth.currentUser.uid);
-
+            setCurrentUser(auth.currentUser);
         } catch {
             setNotice("You entered a wrong username or password.");
         }

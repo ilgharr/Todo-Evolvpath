@@ -1,13 +1,23 @@
-import {auth} from "../authentication/Firebase";
-import _404_ from "./_404_";
-import React from "react";
+import React, {useEffect} from "react";
+import {changeTheme, getTheme, themeChangeListener} from "../firebase/Database";
 
+const Settings = ({currentUser}) => {
+    const [theme, setTheme] = React.useState(getTheme(currentUser.uid));
+    // change theme
+    // change email
+    // change password
+    // delete account
 
-const Settings = () => {
-    if (!auth.currentUser) {return <_404_/>}
+    useEffect(() => {
+        if (theme === "dark") document.body.style.backgroundColor = 'gray';
+        else document.body.style.backgroundColor = 'white';
+        console.log(theme);
+    }, [theme])
 
     const handleTheme = () => {
-
+        if (theme === "light") setTheme("dark")
+        else setTheme("light")
+        changeTheme(currentUser.uid, theme);
     }
 
     return (
@@ -18,10 +28,11 @@ const Settings = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100vh',
-                backgroundColor: '#f8f9fa',
                 color: '#343a40'
             }}>
                 <h1>SETTINGS COMING SOON!</h1>
+                <strong>{currentUser.email}</strong>
+                <button onClick={handleTheme}>Change Theme</button>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import {Nav, Navbar} from "react-bootstrap";
 import logo from "../assets/logo.png";
 import {signOut} from "firebase/auth";
-import {auth} from "../authentication/Firebase";
+import {auth} from "../firebase/FirebaseConfig";
 
 const HomeNavbar =  ({setIsLoggedIn, displaySettings, setDisplaySettings}) => {
 

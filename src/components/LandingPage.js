@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import LandingNavbar from './LandingNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from '../authentication/Login';
-import Signup from '../authentication/Signup';
+import Login from '../firebase/Login';
+import Signup from '../firebase/Signup';
 import SwitchSelector from "react-switch-selector";
 
-const LandingPage = ({setIsLoggedIn, setUserId}) => {
+const LandingPage = ({setIsLoggedIn, setCurrentUser}) => {
     const [displayLogin, setDisplayLogin] = useState(true);
 
     const handleLoginSignup = () => {
@@ -38,7 +38,7 @@ const LandingPage = ({setIsLoggedIn, setUserId}) => {
             </div>
 
             <div className = "d-grid">
-                {displayLogin ? <Login setIsLoggedIn={setIsLoggedIn} setUserId={setUserId}/> : <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId}/>}
+                {displayLogin ? <Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/> : <Signup setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>}
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import Authentication from "./authentication/Authentication";
+import Authentication from "./firebase/Authentication";
 
 export default function App() {
     return (

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { auth } from "./Firebase";
+import { auth } from "./FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {initiateUser} from "./Database";
 
-const Signup = ({setIsLoggedIn, setUserId}) => {
+const Signup = ({setIsLoggedIn, setCurrentUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,7 +16,8 @@ const Signup = ({setIsLoggedIn, setUserId}) => {
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
                 setIsLoggedIn(true)
-                setUserId(auth.currentUser.uid);
+                setCurrentUser(auth.currentUser);
+                initiateUser(auth.currentUser.uid);
             } catch {
                 setNotice("Sorry, something went wrong. Please try again.");
             }     
