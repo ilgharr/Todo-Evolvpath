@@ -32,7 +32,9 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
     npm install
   ```
 
-  3. Create 'Config.js' inside 'src' directory and add Firebase configuration variables
+  3. Sign up at https://firebase.google.com/ and follow the instructions provided
+
+  4. Create 'Config.js' inside 'src' directory and add Firebase configuration variables
 
   ```javascript
     const Config = {
@@ -48,7 +50,7 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
     export default Config;
   ```
 
-  4. Start the application:
+  5. Start the application:
 
   ```bash
     npm start
