@@ -37,6 +37,20 @@ const getUserTodos = async (uid) => {
     }
 };
 
+
+
+export {getUserTodos, writeUserTodos, initiateUser}
+
+
+
+
+
+
+
+
+
+
+
 const changeTheme = (uid, themeMode) => {
     update(ref(database, `users/` + uid + "/settings"), {
         theme: themeMode
@@ -74,5 +88,3 @@ const themeChangeListener = (uid) => {
     });
     return ""
 };
-
-export {getUserTodos, writeUserTodos, initiateUser, changeTheme, getTheme, themeChangeListener}

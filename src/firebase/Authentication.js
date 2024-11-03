@@ -10,7 +10,6 @@ const Authentication = () => {
         if (!isLoggedIn) {
             setCurrentUser("");
         }
-        document.body.style.backgroundColor = '#efefef';
     }, [isLoggedIn]);
 
     return(

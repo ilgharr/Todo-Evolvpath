@@ -1,4 +1,4 @@
-import {getUserTodos, writeUserTodos, getTheme} from "../firebase/Database";
+import {getUserTodos, writeUserTodos} from "../firebase/Database";
 import React, {useEffect, useState} from "react"
 import HomeNavbar from "./HomeNavbar";
 import Settings from "./Settings";
@@ -8,10 +8,6 @@ const HomePage = ({setIsLoggedIn, currentUser}) => {
     const [todos, setTodos] = useState([])
     const [displaySettings, setDisplaySettings] = useState(false);
     const [initialFetch, setInitialFetch] = useState(true);
-
-    useEffect(() => {
-        getTheme(currentUser.uid)
-    }, []);
 
     useEffect(() => {
         if (!currentUser) {
@@ -34,7 +30,7 @@ const HomePage = ({setIsLoggedIn, currentUser}) => {
         <>
             <HomeNavbar setIsLoggedIn={setIsLoggedIn} displaySettings={displaySettings} setDisplaySettings={setDisplaySettings} />
             <div className="d-grid">
-                {displaySettings ? <Settings currentUser={currentUser}/> : <Todo todos={todos} setTodos={setTodos}/>}
+                {displaySettings ? <Settings currentUser={currentUser} setIsLoggedIn={setIsLoggedIn}/> : <Todo todos={todos} setTodos={setTodos}/>}
             </div>
         </>
     )

@@ -1,24 +1,11 @@
 import React, {useEffect} from "react";
-import {changeTheme, getTheme, themeChangeListener} from "../firebase/Database";
 
-const Settings = ({currentUser}) => {
-    const [theme, setTheme] = React.useState(getTheme(currentUser.uid));
-    // change theme
+const Settings = ({currentUser, setIsLoggedIn}) => {
     // change email
     // change password
     // delete account
 
-    useEffect(() => {
-        if (theme === "dark") document.body.style.backgroundColor = 'gray';
-        else document.body.style.backgroundColor = 'white';
-        console.log(theme);
-    }, [theme])
-
-    const handleTheme = () => {
-        if (theme === "light") setTheme("dark")
-        else setTheme("light")
-        changeTheme(currentUser.uid, theme);
-    }
+    // all of these need 2fa
 
     return (
         <div className="settings">
@@ -32,7 +19,9 @@ const Settings = ({currentUser}) => {
             }}>
                 <h1>SETTINGS COMING SOON!</h1>
                 <strong>{currentUser.email}</strong>
-                <button onClick={handleTheme}>Change Theme</button>
+                <button>Delete User</button>
+                <button>Change username</button>
+                <button>Change password</button>
             </div>
         </div>
     )
