@@ -22,8 +22,8 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
   1. Clone he repositoy
 
     ```bash
-    git clone https://github.com/ilgharr/Todo-Evolvpath.git
-    cd todo-app
+      git clone https://github.com/ilgharr/Todo-Evolvpath.git
+      cd todo-app
     ```
 
   2. Install the dependencies:
@@ -34,7 +34,7 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
 
   3. Create 'Config.js' inside 'src' directory and add Firebase configuration variables
 
-    '''javascript
+    ```javascript
     const Config = {
       apiKey: "",
       authDomain: "",
@@ -46,7 +46,7 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
     };
 
     export default Config;
-    '''
+    ```
 
   4. Start the application:
 
