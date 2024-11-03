@@ -21,10 +21,10 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
 
   1. Clone he repositoy
 
-    ```bash
-      git clone https://github.com/ilgharr/Todo-Evolvpath.git
-      cd todo-app
-    ```
+  ```bash
+    git clone https://github.com/ilgharr/Todo-Evolvpath.git
+    cd todo-app
+  ```
 
   2. Install the dependencies:
 
