@@ -28,13 +28,13 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
 
   2. Install the dependencies:
 
-    ```bash
+  ```bash
     npm install
-    ```
+  ```
 
   3. Create 'Config.js' inside 'src' directory and add Firebase configuration variables
 
-    ```javascript
+  ```javascript
     const Config = {
       apiKey: "",
       authDomain: "",
@@ -46,11 +46,12 @@ A simple and intuitive Todo application developed using React and Bootstrap. Thi
     };
 
     export default Config;
-    ```
+  ```
 
   4. Start the application:
 
-    ```bash
+  ```bash
     npm start
-    ```
+  ```
+
     The app will be available at `http://localhost:3000`.
