@@ -2,7 +2,6 @@ import {Nav, Navbar} from "react-bootstrap";
 import logo from "../assets/logo.png";
 import {signOut} from "firebase/auth";
 import {auth} from "../firebase/FirebaseConfig";
-import {logoutUser} from "../firebase/User"
 const HomeNavbar =  ({setIsLoggedIn, displaySettings, setDisplaySettings}) => {
 
     const logoutUser = async (e) => {

@@ -1,11 +1,20 @@
-import React, {useEffect} from "react";
+import React from "react";
+import User from "../firebase/User";
+import {auth} from "../firebase/FirebaseConfig";
+import { sendEmailVerification } from "firebase/auth";
 
-const Settings = ({currentUser, setIsLoggedIn}) => {
+const Settings = ({currentUser, setIsLoggedIn, setCurrentUser}) => {
     // change email
     // change password
     // delete account
 
     // all of these need 2fa
+
+    //setCurrentUser(auth.currentUser);
+
+    const emailVerification = () => {
+        sendEmailVerification(auth.currentUser).then(() => {})
+    }
 
     return (
         <div className="settings">
@@ -17,11 +26,7 @@ const Settings = ({currentUser, setIsLoggedIn}) => {
                 height: '100vh',
                 color: '#343a40'
             }}>
-                <h1>SETTINGS COMING SOON!</h1>
-                <strong>{currentUser.email}</strong>
-                <button>Delete User</button>
-                <button>Change username</button>
-                <button>Change password</button>
+                <button onClick={() => {emailVerification()}}>email verification</button>
             </div>
         </div>
     )

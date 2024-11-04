@@ -11,8 +11,12 @@ const Login = ({setIsLoggedIn, setCurrentUser}) => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            setIsLoggedIn(true);
-            setCurrentUser(auth.currentUser);
+            if(auth.currentUser.emailVerified){
+                setIsLoggedIn(true);
+                setCurrentUser(auth.currentUser);
+            } else {
+                setNotice("Your email address is not verified. Please check your inbox.");
+            }
         } catch {
             setNotice("You entered a wrong username or password.");
         }

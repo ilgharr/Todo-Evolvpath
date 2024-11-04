@@ -14,8 +14,8 @@ const Authentication = () => {
 
     return(
         <>
-            {isLoggedIn ? <HomePage setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} />
-                : <LandingPage setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}
+            {isLoggedIn ? <HomePage setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                : <LandingPage setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser}/>}
         </>
     )
 }

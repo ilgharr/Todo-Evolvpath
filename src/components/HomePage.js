@@ -4,7 +4,7 @@ import HomeNavbar from "./HomeNavbar";
 import Settings from "./Settings";
 import Todo from "./Todo";
 
-const HomePage = ({setIsLoggedIn, currentUser}) => {
+const HomePage = ({setIsLoggedIn, currentUser, setCurrentUser}) => {
     const [todos, setTodos] = useState([])
     const [displaySettings, setDisplaySettings] = useState(false);
     const [initialFetch, setInitialFetch] = useState(true);
@@ -30,7 +30,7 @@ const HomePage = ({setIsLoggedIn, currentUser}) => {
         <>
             <HomeNavbar setIsLoggedIn={setIsLoggedIn} displaySettings={displaySettings} setDisplaySettings={setDisplaySettings} />
             <div className="d-grid">
-                {displaySettings ? <Settings currentUser={currentUser} setIsLoggedIn={setIsLoggedIn}/> : <Todo todos={todos} setTodos={setTodos}/>}
+                {displaySettings ? <Settings currentUser={currentUser} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/> : <Todo todos={todos} setTodos={setTodos}/>}
             </div>
         </>
     )

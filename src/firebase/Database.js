@@ -2,18 +2,11 @@ import {child, get, ref, update, set, onValue} from "firebase/database";
 import {doc, onSnapshot} from "firebase/firestore"
 import {database} from "./FirebaseConfig";
 
-const initiateUser = (uid) => {
-    set(ref(database, `users/` + uid), {
-        todos: null,
-        settings: {
-            theme: "light",
-        }
-    });
-}
+
 
 const writeUserTodos = (uid, todos) => {
     update(ref(database, `users/` + uid), {
-        todos: todos.length === 0 ? [{isDone: false, text: ""}] : todos
+        todos: todos.length === 0 ? [{}] : todos
     });
 }
 
@@ -39,7 +32,7 @@ const getUserTodos = async (uid) => {
 
 
 
-export {getUserTodos, writeUserTodos, initiateUser}
+export {getUserTodos, writeUserTodos}
 
 
 
@@ -48,8 +41,15 @@ export {getUserTodos, writeUserTodos, initiateUser}
 
 
 
-
-
+// unused functions
+const initiateUser = (uid) => {
+    set(ref(database, `users/` + uid), {
+        todos: null,
+        settings: {
+            theme: "light",
+        }
+    });
+}
 
 const changeTheme = (uid, themeMode) => {
     update(ref(database, `users/` + uid + "/settings"), {
