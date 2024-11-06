@@ -40,8 +40,6 @@ const HomeNavbar =  ({setIsLoggedIn, displaySettings, setDisplaySettings}) => {
             </Nav>
 
         </Navbar>
-
-
     );
 };
 

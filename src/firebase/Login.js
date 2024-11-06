@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { auth } from "./FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+
 
 const Login = ({setIsLoggedIn, setCurrentUser}) => {
     const [email, setEmail] = useState("");
@@ -23,44 +25,42 @@ const Login = ({setIsLoggedIn, setCurrentUser}) => {
     }
 
     return(
-        <div className = "container">
-            <div className = "row justify-content-center">
-                <form className = "col-md-4 mt-3 pt-3 pb-3">
-                    { "" !== notice &&
-                        <div className = "alert alert-warning" role = "alert">
-                            { notice }    
+        <Container>
+            <Row className="justify-content-center">
+                <Col md={4} className="mt-3 pt-3 pb-3">
+                    <Form>
+                        {notice !== "" &&
+                            <Alert variant="warning">
+                                {notice}
+                            </Alert>
+                        }
+                        <Form.Group controlId="exampleInputEmail1" className="mb-3">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="name@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="exampleInputPassword1" className="mb-3">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+                        <div className="d-grid">
+                            <Button variant="dark" type="submit" className="pt-3 pb-3" onClick={(e) => loginWithUsernameAndPassword(e)}>
+                                Submit
+                            </Button>
                         </div>
-                    }                  
-                    <div className = "form-floating mb-3">
-                        <input
-                            type = "email"
-                            className = "form-control"
-                            id = "exampleInputEmail1"
-                            aria-describedby = "emailHelp"
-                            placeholder = "name@example.com"
-                            value = { email }
-                            onChange = { (e) => setEmail(e.target.value) }>
-                        </input>
-
-                        <label htmlFor = "exampleInputEmail1" className = "form-label">Email</label>
-                    </div>
-                    <div className = "form-floating mb-3">
-                        <input
-                            type = "password"
-                            className = "form-control"
-                            id = "exampleInputPassword1"
-                            placeholder = "Password"
-                            value = { password }
-                            onChange = { (e) => setPassword(e.target.value) }></input>
-                        <label htmlFor = "exampleInputPassword1" className = "form-label">Password</label>
-                    </div>
-                    <div className = "d-grid">
-                        <button type = "submit" className = "dark-button pt-3 pb-3"
-                                onClick = {(e) => loginWithUsernameAndPassword(e)}>Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
