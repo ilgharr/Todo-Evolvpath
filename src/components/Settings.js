@@ -31,12 +31,12 @@ const Settings = ({setIsLoggedIn}) => {
 
     const options = [
         {
-            label: "Update Email",
+            label: "Change Email",
             value: "updateEmail",
             selectedBackgroundColor: "#404040",
         },
         {
-            label: "Update Password",
+            label: "Change Password",
             value: "updatePassword",
             selectedBackgroundColor: "#404040",
         },
@@ -63,7 +63,7 @@ const Settings = ({setIsLoggedIn}) => {
 
     return (
         <Container className="login_container">
-            <Container>
+            <Container className="switch-selector-container">
                 <SwitchSelector
                     options={options}
                     fontSize={20}

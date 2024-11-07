@@ -97,3 +97,13 @@ html, body, #root {
 .home-navbar-button{
     width: 80px;
 }
+
+.switch-selector-container {
+    text-align: center;
+}
+
+.switch-selector-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

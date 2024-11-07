@@ -41,36 +41,34 @@ const UpdateEmail = ({authenticateUser}) => {
                                 {notice}
                             </Alert>
                         )}
-                        <Row className="g-3 mb-3 align-items-end">
-                            <Col>
-                                <Form.Group>
-                                    <Form.Control
-                                        id="currentPassword"
-                                        type="password"
-                                        placeholder="Current Password"
-                                        value={currentPassword}
-                                        onChange={(e) => setCurrentPassword(e.target.value)}
-                                        autoComplete="new-password"
-                                        required
-                                    />
-                                </Form.Group>
-                            </Col>
-                            <Col>
-                                <Form.Group>
-                                    <Form.Control
-                                        id="newEmail"
-                                        type="email"
-                                        placeholder="name@example.com"
-                                        value={newEmail}
-                                        onChange={(e) => setNewEmail(e.target.value)}
-                                        required
-                                    />
-                                </Form.Group>
-                            </Col>
-                            <Col xs="auto">
-                                <button className="dark-button pt-3 pb-3" type="submit">Update Email</button>
-                            </Col>
-                        </Row>
+                        <Col className="mb-3">
+                            <Form.Group>
+                                <Form.Control
+                                    id="currentPassword"
+                                    type="password"
+                                    placeholder="Current Password"
+                                    value={currentPassword}
+                                    onChange={(e) => setCurrentPassword(e.target.value)}
+                                    autoComplete="new-password"
+                                    required
+                                />
+                            </Form.Group>
+                        </Col>
+                        <Col className="mb-3">
+                            <Form.Group>
+                                <Form.Control
+                                    id="newEmail"
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    value={newEmail}
+                                    onChange={(e) => setNewEmail(e.target.value)}
+                                    required
+                                />
+                            </Form.Group>
+                        </Col>
+                        <Col className="text-center">
+                            <button className="dark-button pt-3 pb-3 w-100" type="submit">Update Email</button>
+                        </Col>
                     </Form>
                 </Col>
             </Row>

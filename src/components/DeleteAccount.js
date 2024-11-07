@@ -50,8 +50,7 @@ const DeleteAccount = ({authenticateUser, setIsLoggedIn}) => {
                                 {notice}
                             </Alert>
                         )}
-                        <Row className="g-3 mb-3 align-items-end">
-                            <Col>
+                            <Col className="g-3 mb-3 align-items-end">
                                 <Form.Group>
                                     <Form.Control
                                         id="currentPassword"
@@ -65,9 +64,8 @@ const DeleteAccount = ({authenticateUser, setIsLoggedIn}) => {
                                 </Form.Group>
                             </Col>
                             <Col xs="auto">
-                                <button className="dark-button pt-3 pb-3" type="submit">Delete Account</button>
+                                <button className="dark-button pt-3 pb-3 w-100" type="submit">Delete Account</button>
                             </Col>
-                        </Row>
                     </Form>
                 </Col>
             </Row>

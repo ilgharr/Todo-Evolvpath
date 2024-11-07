@@ -27,8 +27,7 @@ const UpdatePassword = ({authenticateUser}) => {
                                 {notice}
                             </Alert>
                         )}
-                        <Row className="g-3 mb-3 align-items-end">
-                            <Col>
+                            <Col className="mb-3">
                                 <Form.Group>
                                     <Form.Control
                                         id="currentPassword"
@@ -42,9 +41,8 @@ const UpdatePassword = ({authenticateUser}) => {
                                 </Form.Group>
                             </Col>
                             <Col xs="auto">
-                                <button className="dark-button pt-3 pb-3" type="submit">Send Email</button>
+                                <button className="dark-button pt-3 pb-3 w-100" type="submit">Send Email</button>
                             </Col>
-                        </Row>
                     </Form>
                 </Col>
             </Row>
