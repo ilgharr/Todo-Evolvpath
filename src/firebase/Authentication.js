@@ -4,18 +4,11 @@ import HomePage from "../components/HomePage";
 
 const Authentication = () => {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-    const [currentUser, setCurrentUser] = React.useState("");
-
-    useEffect(() => {
-        if (!isLoggedIn) {
-            setCurrentUser("");
-        }
-    }, [isLoggedIn]);
 
     return(
         <>
-            {isLoggedIn ? <HomePage setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-                : <LandingPage setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser}/>}
+            {isLoggedIn ? <HomePage setIsLoggedIn={setIsLoggedIn}/>
+                : <LandingPage setIsLoggedIn={setIsLoggedIn}/>}
         </>
     )
 }

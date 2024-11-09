@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { auth } from "./FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import {Container, Row, Col, Form, Button, Alert, FloatingLabel} from 'react-bootstrap';
 
 
-const Login = ({setIsLoggedIn, setCurrentUser}) => {
+const Login = ({setIsLoggedIn}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [notice, setNotice] = useState("");
@@ -15,7 +15,6 @@ const Login = ({setIsLoggedIn, setCurrentUser}) => {
             await signInWithEmailAndPassword(auth, email, password);
             if(auth.currentUser.emailVerified){
                 setIsLoggedIn(true);
-                setCurrentUser(auth.currentUser);
             } else {
                 setNotice("Your email address is not verified. Please check your inbox.");
             }
@@ -35,25 +34,37 @@ const Login = ({setIsLoggedIn, setCurrentUser}) => {
                             </Alert>
                         }
                         <Form.Group controlId="exampleInputEmail1" className="mb-3">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="email"
-                                placeholder="name@example.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                            <FloatingLabel
+                                controlId="loginEmail"
+                                label="Email"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </FloatingLabel>
+
                         </Form.Group>
                         <Form.Group controlId="exampleInputPassword1" className="mb-3">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                            <FloatingLabel
+                                controlId="loginPassword"
+                                label="Password"
+                                className="mb-3"
+                            >
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </FloatingLabel>
+
                         </Form.Group>
                         <div className="d-grid">
-                            <Button variant="dark" type="submit" className="pt-3 pb-3" onClick={(e) => loginWithUsernameAndPassword(e)}>
+                            <Button type="submit" className="btn-dark pt-3 pb-3" onClick={(e) => loginWithUsernameAndPassword(e)}>
                                 Submit
                             </Button>
                         </div>

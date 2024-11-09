@@ -5,7 +5,7 @@ html, body, #root {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /*background-color: #efefef;*/
+    background-color: #efefef;
 }
 
 .start {
@@ -52,9 +52,7 @@ html, body, #root {
 }
 
 .new-todo{
-    font-size: 30px;
     width: 420px;
-    padding: 0;
     margin: 10px auto 10px auto;
 }
 
@@ -106,4 +104,11 @@ html, body, #root {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.account-container div{
+    max-width: 600px;
+    margin: 0 auto;
 }

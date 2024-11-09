@@ -1,6 +1,6 @@
-import {Container, Alert, Col, Form, Row} from "react-bootstrap";
+import {Container, Alert, Col, Form, Row, FloatingLabel, Button} from "react-bootstrap";
 import React, {useState} from "react";
-import {sendPasswordResetEmail, updatePassword} from "firebase/auth";
+import {sendPasswordResetEmail} from "firebase/auth";
 import {auth} from "../firebase/FirebaseConfig";
 
 const UpdatePassword = ({authenticateUser}) => {
@@ -13,11 +13,11 @@ const UpdatePassword = ({authenticateUser}) => {
             setNotice("Change of password email has been sent.")
             await sendPasswordResetEmail(auth, auth.currentUser.email);
         } else {
-            setNotice('Authentication failed. Password change aborted.')
+            setNotice('Authentication failed. Password change aborted.');
         }
-    }
+    };
 
-    return(
+    return (
         <Container>
             <Row className="justify-content-center">
                 <Col md={8} className="mt-3 pt-3 pb-3">
@@ -27,27 +27,34 @@ const UpdatePassword = ({authenticateUser}) => {
                                 {notice}
                             </Alert>
                         )}
-                            <Col className="mb-3">
-                                <Form.Group>
+                        <Col className="mb-3">
+                            <Form.Group>
+                                <FloatingLabel
+                                    controlId="currentPassword"
+                                    label="Current Password"
+                                    className="mb-3"
+                                >
                                     <Form.Control
-                                        id="currentPassword"
                                         type="password"
-                                        placeholder="Current Password"
+                                        placeholder="Password"
                                         value={currentPassword}
                                         onChange={(e) => setCurrentPassword(e.target.value)}
                                         autoComplete="new-password"
                                         required
                                     />
-                                </Form.Group>
-                            </Col>
-                            <Col xs="auto">
-                                <button className="dark-button pt-3 pb-3 w-100" type="submit">Send Email</button>
-                            </Col>
+                                </FloatingLabel>
+                            </Form.Group>
+                        </Col>
+                        <Col xs="auto">
+                            <Button className="btn-dark pt-3 pb-3 w-100" type="submit">
+                                Send Email
+                            </Button>
+                        </Col>
                     </Form>
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default UpdatePassword
+export default UpdatePassword;

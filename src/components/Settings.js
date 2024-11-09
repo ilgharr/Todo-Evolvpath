@@ -71,9 +71,11 @@ const Settings = ({setIsLoggedIn}) => {
                     onChange={handleSwitch}
                 />
             </Container>
-            {displayEmail ? <UpdateEmail authenticateUser={authenticateUser}/> : null}
-            {displayPassword ? <UpdatePassword authenticateUser={authenticateUser}/> : null}
-            {displayDeletion ? <DeleteAccount authenticateUser={authenticateUser} setIsLoggedIn={setIsLoggedIn}/> : null}
+            <Container className="account-container">
+                {displayEmail ? <UpdateEmail authenticateUser={authenticateUser}/> : null}
+                {displayPassword ? <UpdatePassword authenticateUser={authenticateUser}/> : null}
+                {displayDeletion ? <DeleteAccount authenticateUser={authenticateUser} setIsLoggedIn={setIsLoggedIn}/> : null}
+            </Container>
         </Container>
     )
 }

@@ -1,4 +1,4 @@
-import {Nav, Navbar} from "react-bootstrap";
+import {Nav, Navbar, Button} from "react-bootstrap";
 import logo from "../assets/logo.png";
 import {signOut} from "firebase/auth";
 import {auth} from "../firebase/FirebaseConfig";
@@ -21,22 +21,22 @@ const HomeNavbar =  ({setIsLoggedIn, displaySettings, setDisplaySettings}) => {
             </Navbar.Brand>
 
             <Nav className="ms-auto">
-                <button
+                <Button
                     type="submit"
-                    className="dark-button pt-3 pb-3 m-0 home-navbar-button"
+                    className="btn-dark pt-3 pb-3"
                     onClick={(e) => logoutUser(e)}
                 >Logout
-                </button>
+                </Button>
             </Nav>
 
             <Nav className="mx-4 my-0">
-                <button
+                <Button
                     type="submit"
-                    className="dark-button pt-3 pb-3 m-0 home-navbar-button"
+                    className="btn-dark pt-3 pb-3"
                     onClick={() => setDisplaySettings((prevSetting) => !prevSetting)}
                 >
                     {displaySettings ? 'Home' : 'Settings'}
-                </button>
+                </Button>
             </Nav>
 
         </Navbar>

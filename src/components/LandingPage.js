@@ -5,7 +5,7 @@ import Login from '../firebase/Login';
 import Signup from '../firebase/Signup';
 import SwitchSelector from "react-switch-selector";
 
-const LandingPage = ({setIsLoggedIn, setCurrentUser, currentUser}) => {
+const LandingPage = ({setIsLoggedIn}) => {
     const [displayLogin, setDisplayLogin] = useState(true);
 
     const handleLoginSignup = () => {
@@ -16,12 +16,12 @@ const LandingPage = ({setIsLoggedIn, setCurrentUser, currentUser}) => {
         {
             label: "LOGIN",
             value: "login",
-            selectedBackgroundColor: "#404040",
+            selectedBackgroundColor: "#000000",
         },
         {
             label: "SIGN UP",
             value: "signup",
-            selectedBackgroundColor: "#404040",
+            selectedBackgroundColor: "#000000",
         }
     ];
 
@@ -38,7 +38,7 @@ const LandingPage = ({setIsLoggedIn, setCurrentUser, currentUser}) => {
             </div>
 
             <div className = "d-grid">
-                {displayLogin ? <Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/> : <Signup setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser}/>}
+                {displayLogin ? <Login setIsLoggedIn={setIsLoggedIn}/> : <Signup setIsLoggedIn={setIsLoggedIn}/>}
             </div>
         </div>
     );

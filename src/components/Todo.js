@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import {Button} from 'react-bootstrap';
 
 const TodoList = ({ todos, handleDelete, handleSaveText, handleStatusChange }) => (
     <Container className="todo-list">
@@ -45,7 +46,7 @@ const Todo = ({todos, setTodos}) => {
 
     return (
         <>
-            <button type="submit" className="new-todo dark-button" onClick={addTodo}>Add Todo</button>
+            <Button type="submit" className="new-todo btn-dark btn-lg" onClick={addTodo}>Add Todo</Button>
             <TodoList
                 todos={todos}
                 handleDelete={deleteTodo}
