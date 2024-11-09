@@ -1,5 +1,5 @@
 import {getUserTodos, writeUserTodos} from "../firebase/Database";
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react";
 import HomeNavbar from "./HomeNavbar";
 import Settings from "./Settings";
 import Todo from "./Todo";
@@ -27,14 +27,14 @@ const HomePage = ({setIsLoggedIn}) => {
         writeUserTodos(auth.currentUser.uid, todos);
     }, [todos, initialFetch]);
 
-    return(
+    return (
         <>
             <HomeNavbar setIsLoggedIn={setIsLoggedIn} displaySettings={displaySettings} setDisplaySettings={setDisplaySettings} />
             <div className="d-grid">
                 {displaySettings ? <Settings setIsLoggedIn={setIsLoggedIn}/> : <Todo todos={todos} setTodos={setTodos}/>}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default HomePage;

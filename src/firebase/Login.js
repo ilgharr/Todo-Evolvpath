@@ -46,7 +46,6 @@ const Login = ({setIsLoggedIn}) => {
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </FloatingLabel>
-
                         </Form.Group>
                         <Form.Group controlId="exampleInputPassword1" className="mb-3">
                             <FloatingLabel
@@ -61,13 +60,10 @@ const Login = ({setIsLoggedIn}) => {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </FloatingLabel>
-
                         </Form.Group>
-                        <div className="d-grid">
-                            <Button type="submit" className="btn-dark pt-3 pb-3" onClick={(e) => loginWithUsernameAndPassword(e)}>
+                            <Button type="submit" className="btn-dark w-100 pt-3 pb-3" onClick={(e) => loginWithUsernameAndPassword(e)}>
                                 Submit
                             </Button>
-                        </div>
                     </Form>
                 </Col>
             </Row>

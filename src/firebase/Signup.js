@@ -46,12 +46,12 @@ const Signup = ({ setIsLoggedIn}) => {
     }, [auth.currentUser, setIsLoggedIn]);
 
     return (
-        <Container className="mt-3">
+        <Container>
             <Row className="justify-content-center">
                 <Col md={4}>
                     <Form onSubmit={signupWithUsernameAndPassword} className="mt-3 pt-3 pb-3">
                         {notice && (
-                            <Alert variant="warning" role="alert">
+                            <Alert variant="warning">
                                 {notice}
                             </Alert>
                         )}
@@ -96,7 +96,6 @@ const Signup = ({ setIsLoggedIn}) => {
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                 />
                             </FloatingLabel>
-
                         </Form.Group>
                         <Button type="submit" className="btn-dark w-100 pt-3 pb-3">
                             Submit

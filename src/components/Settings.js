@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {auth} from "../firebase/FirebaseConfig";
-import {
-    reauthenticateWithCredential,
-    EmailAuthProvider
-} from "firebase/auth";
-import { Container } from 'react-bootstrap';
+import {reauthenticateWithCredential, EmailAuthProvider} from "firebase/auth";
+import {Container} from 'react-bootstrap';
 import SwitchSelector from "react-switch-selector";
 import UpdateEmail from "./UpdateEmail";
 import UpdatePassword from "./UpdatePassword";
@@ -15,8 +12,8 @@ const Settings = ({setIsLoggedIn}) => {
     const [displayPassword, setDisplayPassword] = useState(false);
     const [displayDeletion, setDisplayDeletion] = useState(false);
 
-    const authenticateUser = async (e, currentPassword) => {
-        e.preventDefault();
+    const authenticateUser = async (event, currentPassword) => {
+        event.preventDefault();
         try {
             const credential = EmailAuthProvider.credential(
                 auth.currentUser.email,
@@ -30,36 +27,27 @@ const Settings = ({setIsLoggedIn}) => {
     };
 
     const options = [
-        {
-            label: "Change Email",
-            value: "updateEmail",
-            selectedBackgroundColor: "#404040",
-        },
-        {
-            label: "Change Password",
-            value: "updatePassword",
-            selectedBackgroundColor: "#404040",
-        },
-        {
-            label: "Delete Account",
-            value: "deleteAccount",
-            selectedBackgroundColor: "#404040",
-        }
-    ]
+        {label: "Change Email", value: "updateEmail", selectedBackgroundColor: "#404040"},
+        {label: "Change Password", value: "updatePassword", selectedBackgroundColor: "#404040"},
+        {label: "Delete Account", value: "deleteAccount", selectedBackgroundColor: "#404040"}
+    ];
 
-    const handleSwitch = (newValue) => {
+    const resetDisplayStates = () => {
         setDisplayEmail(false);
         setDisplayPassword(false);
         setDisplayDeletion(false);
+    };
 
-        if (newValue === "updateEmail") {
+    const handleSwitch = (selectedValue) => {
+        resetDisplayStates();
+        if (selectedValue === "updateEmail") {
             setDisplayEmail(true);
-        } else if (newValue === "updatePassword") {
+        } else if (selectedValue === "updatePassword") {
             setDisplayPassword(true);
-        } else if (newValue === "deleteAccount") {
+        } else if (selectedValue === "deleteAccount") {
             setDisplayDeletion(true);
         }
-    }
+    };
 
     return (
         <Container className="login_container">
@@ -72,12 +60,12 @@ const Settings = ({setIsLoggedIn}) => {
                 />
             </Container>
             <Container className="account-container">
-                {displayEmail ? <UpdateEmail authenticateUser={authenticateUser}/> : null}
-                {displayPassword ? <UpdatePassword authenticateUser={authenticateUser}/> : null}
-                {displayDeletion ? <DeleteAccount authenticateUser={authenticateUser} setIsLoggedIn={setIsLoggedIn}/> : null}
+                {displayEmail && <UpdateEmail authenticateUser={authenticateUser}/>}
+                {displayPassword && <UpdatePassword authenticateUser={authenticateUser}/>}
+                {displayDeletion && <DeleteAccount authenticateUser={authenticateUser} setIsLoggedIn={setIsLoggedIn}/>}
             </Container>
         </Container>
-    )
-}
+    );
+};
 
 export default Settings;
