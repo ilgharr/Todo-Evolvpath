@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { auth } from "./FirebaseConfig";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import React, {useEffect, useState} from "react";
+import {auth} from "./FirebaseConfig";
+import {createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
 import {Button, Form, Alert, Container, Row, Col, FloatingLabel} from 'react-bootstrap';
 
 const Signup = ({ setIsLoggedIn}) => {
@@ -48,7 +48,7 @@ const Signup = ({ setIsLoggedIn}) => {
     return (
         <Container>
             <Row className="justify-content-center">
-                <Col md={4}>
+                <Col md={6}>
                     <Form onSubmit={signupWithUsernameAndPassword} className="mt-3 pt-3 pb-3">
                         {notice && (
                             <Alert variant="warning">
@@ -56,11 +56,7 @@ const Signup = ({ setIsLoggedIn}) => {
                             </Alert>
                         )}
                         <Form.Group className="mb-3" controlId="signupEmail">
-                            <FloatingLabel
-                                controlId="signupEmail"
-                                label="Email"
-                                className="mb-3"
-                            >
+                            <FloatingLabel controlId="signupEmail" label="Email" className="mb-3">
                                 <Form.Control
                                     type="email"
                                     placeholder="name@example.com"
@@ -70,11 +66,7 @@ const Signup = ({ setIsLoggedIn}) => {
                             </FloatingLabel>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="signupPassword">
-                            <FloatingLabel
-                                controlId="signupPassword"
-                                label="Enter Password"
-                                className="mb-3"
-                            >
+                            <FloatingLabel controlId="signupPassword" label="Enter Password" className="mb-3">
                                 <Form.Control
                                     type="password"
                                     placeholder="Password"
@@ -84,11 +76,7 @@ const Signup = ({ setIsLoggedIn}) => {
                             </FloatingLabel>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="confirmPassword">
-                            <FloatingLabel
-                                controlId="signupPassword"
-                                label="Confirm Password"
-                                className="mb-3"
-                            >
+                            <FloatingLabel controlId="signupPassword" label="Confirm Password" className="mb-3">
                                 <Form.Control
                                     type="password"
                                     placeholder="Confirm Password"

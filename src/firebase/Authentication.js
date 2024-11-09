@@ -1,6 +1,6 @@
 import LandingPage from "../components/LandingPage";
-import React, {useEffect} from "react";
 import HomePage from "../components/HomePage";
+import React, {useState, useEffect} from "react";
 
 const Authentication = () => {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -10,8 +10,8 @@ const Authentication = () => {
             {isLoggedIn ? <HomePage setIsLoggedIn={setIsLoggedIn}/>
                 : <LandingPage setIsLoggedIn={setIsLoggedIn}/>}
         </>
-    )
-}
+    );
+};
 
 export default Authentication;
 
